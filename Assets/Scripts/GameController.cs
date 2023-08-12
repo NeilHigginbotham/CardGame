@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     {
         if (deck.Count >= 1)
         {
-            Card randCard = deck[Random.Range(0, deck.Count)]
+            Card randCard = deck[Random.Range(0, deck.Count)];
         }
     }
 
