@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Enumeration;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
 public class Card : ScriptableObject
 {
     public new string name;
@@ -13,14 +15,8 @@ public class Card : ScriptableObject
     public int attack;
     public int health;
 
-    void Start()
+    public void Print()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log(name + ": " + description + "This card costs: " + manaCost);
     }
 }
