@@ -25,6 +25,7 @@ public class CardDisplay : MonoBehaviour
         artworkImage.sprite = card.artwork;
         attackText.text = card.attack.ToString();
         healthText.text = card.health.ToString();
+        manaText.text = card.manaCost.ToString();
     }
 
 }
