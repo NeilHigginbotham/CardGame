@@ -15,7 +15,7 @@ public class CardDisplay : MonoBehaviour
     public TMP_Text healthText;
 
 
-
+    public Image cardBorder;
     public Image artworkImage;
     void Start()
     {
@@ -26,6 +26,7 @@ public class CardDisplay : MonoBehaviour
         attackText.text = card.attack.ToString();
         healthText.text = card.health.ToString();
         manaText.text = card.manaCost.ToString();
+        cardBorder.sprite = card.cardBorder;
     }
 
 }
