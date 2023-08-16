@@ -28,5 +28,4 @@ public class CardDisplay : MonoBehaviour
         manaText.text = card.manaCost.ToString();
         cardBorder.sprite = card.cardBorder;
     }
-
 }
