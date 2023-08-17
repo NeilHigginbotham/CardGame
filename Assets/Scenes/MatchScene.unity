@@ -2524,7 +2524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904054343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1014.1855, y: 704.1098, z: 0}
+  m_LocalPosition: {x: -1033, y: 811, z: 0}
   m_LocalScale: {x: 2.1018202, y: 2.1018202, z: 2.1018202}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4991,6 +4991,7 @@ MonoBehaviour:
   deck: []
   cardSlots: []
   availableCardSlots: 
+  deckSizeText: {fileID: 0}
 --- !u!4 &2015310945
 Transform:
   m_ObjectHideFlags: 0

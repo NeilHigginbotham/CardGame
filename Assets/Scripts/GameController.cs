@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
                 if (availableCardSlots[i] == true)
                 {
                     randCard.GameObject().SetActive(true);
-                    randCard.transform.position = cardSlots[i].position;
+                    //randCard.transform.position = cardSlots[i].position;
                     availableCardSlots[i] = false;
                     deck.Remove(randCard);
                     return;
