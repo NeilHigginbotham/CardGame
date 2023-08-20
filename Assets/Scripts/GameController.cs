@@ -15,7 +15,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        // DrawStartingCards(7); // Draw 7 cards at the start of the game
+        // Draw 7 cards at the start of the game
+        DrawStartingCards(7);
     }
 
 
@@ -30,7 +31,7 @@ public class GameController : MonoBehaviour
                 if (availableCardSlots[i] == true)
                 {
                     randCard.GameObject().SetActive(true);
-                    //randCard.transform.position = cardSlots[i].position;
+                    randCard.transform.position = cardSlots[i].position;
                     availableCardSlots[i] = false;
                     deck.Remove(randCard);
                     return;
@@ -39,14 +40,18 @@ public class GameController : MonoBehaviour
         }
     }
 
-    /*
+    private void Update()
+    {
+        deckSizeText.text = deck.Count.ToString();
+    }
+
     public void DrawStartingCards(int numCards)
     {
         for (int drawCount = 0; drawCount < numCards; drawCount++)
         {
             if (deck.Count >= 1)
             {
-                Card randCard = deck[Random.Range(0, deck.Count)];
+                CardDisplay randCard = deck[Random.Range(0, deck.Count)];
 
                 for (int i = 0; i < availableCardSlots.Length; i++)
                 {
@@ -64,5 +69,5 @@ public class GameController : MonoBehaviour
                 }
             }
         }
-    }*/
+    }
 }
