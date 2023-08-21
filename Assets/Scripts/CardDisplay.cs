@@ -17,8 +17,15 @@ public class CardDisplay : MonoBehaviour
 
     public Image cardBorder;
     public Image artworkImage;
+
+    public bool hasBeenPlayed;
+    public int handIndex;
+
+    private GameController gm;
+
     void Start()
     {
+        gm = FindObjectOfType<GameController>();
         nameText.text = card.name;
         descriptionText.text = card.description;
 
@@ -27,5 +34,17 @@ public class CardDisplay : MonoBehaviour
         healthText.text = card.health.ToString();
         manaText.text = card.manaCost.ToString();
         cardBorder.sprite = card.cardBorder;
+    }
+
+    // Update is called once per frame
+    public void PlayCard()
+    {
+        if (hasBeenPlayed == false)
+        {
+            transform.position += Vector3.up * 5;
+            hasBeenPlayed = true;
+            gm.availableCardSlots[handIndex] = true;
+            Debug.Log("Card played");
+        }
     }
 }

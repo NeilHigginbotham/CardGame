@@ -13,15 +13,19 @@ public class GameController : MonoBehaviour
     public bool[] availableCardSlots;
     public TextMeshProUGUI deckSizeText;
 
+     
+
     private void Start()
     {
-        // Draw 7 cards at the start of the game
+        // Sets variable for starting hand card draw
         DrawStartingCards(7);
     }
 
 
     public void DrawCard()
     {
+        //  If the deck has cards, randomly look through the list and find one
+        //  Then enable the card, update position, and remove from the deck
         if (deck.Count >= 1)
         {
             CardDisplay randCard = deck[Random.Range(0, deck.Count)];
@@ -31,6 +35,7 @@ public class GameController : MonoBehaviour
                 if (availableCardSlots[i] == true)
                 {
                     randCard.GameObject().SetActive(true);
+                    randCard.handIndex = i;
                     randCard.transform.position = cardSlots[i].position;
                     availableCardSlots[i] = false;
                     deck.Remove(randCard);
@@ -42,11 +47,13 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        // Counts cards in deck
         deckSizeText.text = deck.Count.ToString();
     }
 
     public void DrawStartingCards(int numCards)
     {
+        // Loop that draws cards until we have 7 cards
         for (int drawCount = 0; drawCount < numCards; drawCount++)
         {
             if (deck.Count >= 1)
@@ -58,6 +65,7 @@ public class GameController : MonoBehaviour
                     if (availableCardSlots[i])
                     {
                         randCard.gameObject.SetActive(true);
+                        randCard.handIndex = i;
                         randCard.transform.position = cardSlots[i].position;
                         availableCardSlots[i] = false;
                         deck.Remove(randCard);
