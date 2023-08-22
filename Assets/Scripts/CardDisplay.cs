@@ -41,7 +41,7 @@ public class CardDisplay : MonoBehaviour
     {
         if (hasBeenPlayed == false)
         {
-            transform.position += Vector3.up * 5;
+            transform.position += Vector3.up * 300;
             hasBeenPlayed = true;
             gm.availableCardSlots[handIndex] = true;
             Debug.Log("Card played");

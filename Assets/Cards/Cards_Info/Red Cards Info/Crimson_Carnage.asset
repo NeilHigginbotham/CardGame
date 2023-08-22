@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b33109bf2bfe244b9a1c47a6bfee4e, type: 3}
+  m_Name: Crimson_Carnage
+  m_EditorClassIdentifier: 
+  name: Crimson Carnage
+  description: If a source you control would deal damage to a permanent or player,
+    it deals double that damage to that permanent or player instead.
+  artwork: {fileID: 21300000, guid: 99553f5a19893f9478fb6ede2add643b, type: 3}
+  cardBorder: {fileID: 21300000, guid: 4c0df8d2c08032244b74192ca27a60b7, type: 3}
+  manaCost: 5
+  attack: 0
+  health: 0
