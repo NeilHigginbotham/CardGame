@@ -18,7 +18,7 @@ public class CardDisplay : MonoBehaviour
     public Image cardBorder;
     public Image artworkImage;
 
-    public bool hasBeenPlayed;
+    public bool hasBeenPlayed = false;
     public int handIndex;
 
     private GameController gm;
@@ -42,8 +42,8 @@ public class CardDisplay : MonoBehaviour
         if (hasBeenPlayed == false)
         {
             transform.position += Vector3.up * 300;
-            hasBeenPlayed = true;
             gm.availableCardSlots[handIndex] = true;
+            hasBeenPlayed = true;
             Debug.Log("Card played");
         }
     }
