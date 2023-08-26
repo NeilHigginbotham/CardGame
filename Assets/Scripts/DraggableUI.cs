@@ -11,42 +11,81 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private Canvas canvas;
     private Camera mainCamera;
     private Vector2 offset;
+    public bool isCardTapped = false;
+    public bool isDragged = false;
 
     public CardDisplay card;
-    public bool hasBeenPlayed;
 
     private void Start()
     {
-        // Not necessary because script is alrady on object I guess.
+        // Not necessary because script is alrady on object I guess. Could be useful for another object.
         // ->    card = FindObjectOfType<CardDisplay>();
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         mainCamera = Camera.main;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData) 
     {
+        // Works with the OnDrag method.
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out offset);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (card.hasBeenPlayed == true)
-        {
-            // Rotate the UI object by 90 degrees
-            rectTransform.Rotate(Vector3.forward, 90f);
-            Debug.Log("Tapped object and rotated.");
-        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform.parent as RectTransform, eventData.position, eventData.pressEventCamera, out Vector2 localPoint))
+        // Mouse drag moves the UI elements.
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform.parent as RectTransform, eventData.position, eventData.pressEventCamera, out Vector2 localPoint) & card.hasBeenPlayed == true)
         {
             Vector2 anchoredPosition = localPoint - offset;
             Vector2 scaledAnchoredPosition = anchoredPosition / canvas.scaleFactor;
 
             rectTransform.anchoredPosition = scaledAnchoredPosition;
+            isDragged = true;
+            Debug.Log("dragging now");
         }
-    } 
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (card.hasBeenPlayed == true & isCardTapped == false)
+        {
+            if (!isDragged)
+            {
+                StartCoroutine(TapAfterPlay());
+            }
+            else
+            {
+                Debug.Log("Not dragging");
+                isDragged = false;
+            }
+        }
+        if (card.hasBeenPlayed == true & isCardTapped == true)
+        {
+            StartCoroutine(UnTapAfterPlay());
+        }
+    }
+    private IEnumerator TapAfterPlay()
+    {
+        // Delay for a short period (adjust the delay as needed)
+        yield return new WaitForSeconds(0.1f);
+
+        // Rotate the UI object by 90 degrees
+        rectTransform.Rotate(Vector3.back, 90f);
+        Debug.Log("Untapped object now tapped.");
+
+        // Reset the flag
+        isCardTapped = true;
+    }
+    private IEnumerator UnTapAfterPlay()
+    {
+        // Delay for a short period (adjust the delay as needed)
+        yield return new WaitForSeconds(0.1f);
+
+        // Rotate the UI object by 90 degrees
+        rectTransform.Rotate(Vector3.forward, 90f);
+        Debug.Log("Tapped object now untapped.");
+
+        // Reset the flag
+        isCardTapped = false;
+    }
 }

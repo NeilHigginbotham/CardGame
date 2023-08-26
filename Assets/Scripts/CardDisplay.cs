@@ -41,10 +41,18 @@ public class CardDisplay : MonoBehaviour
     {
         if (hasBeenPlayed == false)
         {
-            transform.position += Vector3.up * 300;
-            gm.availableCardSlots[handIndex] = true;
-            hasBeenPlayed = true;
-            Debug.Log("Card played");
+            StartCoroutine(PlayedDelay());
+            Debug.Log("IEnumerator active");
         }
     }
+
+    private IEnumerator PlayedDelay()
+    {
+        transform.position += Vector3.up * 300;
+        gm.availableCardSlots[handIndex] = true;
+        yield return new WaitForSeconds(0.5f);
+        hasBeenPlayed = true;
+        Debug.Log("Card played");
+    }
+
 }
