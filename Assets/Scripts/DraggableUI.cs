@@ -41,7 +41,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
             rectTransform.anchoredPosition = scaledAnchoredPosition;
             isDragged = true;
-            Debug.Log("dragging now");
         }
     }
 
@@ -55,7 +54,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             }
             else
             {
-                Debug.Log("Not dragging");
                 isDragged = false;
             }
         }
@@ -71,7 +69,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
         // Rotate the UI object by 90 degrees
         rectTransform.Rotate(Vector3.back, 90f);
-        Debug.Log("Untapped object now tapped.");
 
         // Reset the flag
         isCardTapped = true;
@@ -83,7 +80,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
         // Rotate the UI object by 90 degrees
         rectTransform.Rotate(Vector3.forward, 90f);
-        Debug.Log("Tapped object now untapped.");
 
         // Reset the flag
         isCardTapped = false;
