@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 8580808808194796872}
   - component: {fileID: 1953502457757307933}
   - component: {fileID: 7486880395550264219}
+  - component: {fileID: 6404859565023319718}
   m_Layer: 0
   m_Name: Swamp
   m_TagString: Untagged
@@ -901,7 +902,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2208abe740c0b5747a7ac73e817fd3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCardTapped: 0
+  isDragged: 0
+  isRightClickDown: 0
   card: {fileID: 8580808808194796875}
+--- !u!114 &6404859565023319718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580808808194796877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896ca24db1e3b60479776b8b2747876a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempenlargedobject: {fileID: 8580808808194796877}
+  scaleFactor: 2
+  offset: {x: 0, y: 0, z: 1}
 --- !u!1 &8580808808314796876
 GameObject:
   m_ObjectHideFlags: 0

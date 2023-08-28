@@ -13,6 +13,9 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private Vector2 offset;
     public bool isCardTapped = false;
     public bool isDragged = false;
+    public bool isRightClickDown = false;
+
+
 
     public CardDisplay card;
 
@@ -25,10 +28,13 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         mainCamera = Camera.main;
     }
 
-    public void OnPointerDown(PointerEventData eventData) 
+    public void OnPointerDown(PointerEventData eventData)
     {
-        // Works with the OnDrag method.
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out offset);
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Works with the OnDrag method.
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out offset);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -44,22 +50,25 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData pointerEventData)
     {
-        if (card.hasBeenPlayed == true & isCardTapped == false)
+        if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
-            if (!isDragged)
+            if (card.hasBeenPlayed == true & isCardTapped == false)
             {
-                StartCoroutine(TapAfterPlay());
+                if (!isDragged)
+                {
+                    StartCoroutine(TapAfterPlay());
+                }
+                else
+                {
+                    isDragged = false;
+                }
             }
-            else
+            if (card.hasBeenPlayed == true & isCardTapped == true)
             {
-                isDragged = false;
+                StartCoroutine(UnTapAfterPlay());
             }
-        }
-        if (card.hasBeenPlayed == true & isCardTapped == true)
-        {
-            StartCoroutine(UnTapAfterPlay());
         }
     }
     private IEnumerator TapAfterPlay()
@@ -70,18 +79,20 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         // Rotate the UI object by 90 degrees
         rectTransform.Rotate(Vector3.back, 90f);
 
-        // Reset the flag
+        // Card tapped bool state
         isCardTapped = true;
     }
     private IEnumerator UnTapAfterPlay()
     {
-        // Delay for a short period (adjust the delay as needed)
+        // Delay for a short period
         yield return new WaitForSeconds(0.1f);
 
         // Rotate the UI object by 90 degrees
         rectTransform.Rotate(Vector3.forward, 90f);
 
-        // Reset the flag
+        // Card untapped bool state
         isCardTapped = false;
     }
+
+
 }
