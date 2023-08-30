@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    // WIP     Notes for this script. phases work great. they shift every 1f currently but I want them to end differently depending on the phase or maybe
+    // just for simplicity every phase will be manually ended. this gets a lot more complicated if i add in instant speed stuff but perhaps
+    // later it can be modified to work at instant speed.
 
     private bool isPlayer1Turn = true; // Flag to track the current player's turn
-    private List<string> phases = new List<string> { "Upkeep", "Untap", "Draw", "Main", "Attack", "Secondmain", "End" };
+    private List<string> phases = new List<string> { "Untap", "Upkeep", "Draw", "Main", "Attack", "Secondmain", "End" };
     private int currentPhaseIndex = 0;
 
     // Start is called before the first frame update
@@ -70,7 +73,7 @@ public class TurnManager : MonoBehaviour
         // You can implement player input and actions here
 
         // For the sake of example, let's wait for a few seconds
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
 
         phaseCompleted = true;
 
