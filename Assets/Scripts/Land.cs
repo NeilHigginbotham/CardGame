@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Land : MonoBehaviour
-{ /*
-    public bool hasBeenPlayed;
+public class Land : MonoBehaviour, IPointerClickHandler
+{
+    public CardDisplay card;
 
-    public int handIndex;
+    public bool isCardTappedLand = false;
 
-    public Card card;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    private void OnMouseDown()
+    public void OnPointerClick(PointerEventData pointerEventData)
     {
-        if(hasBeenPlayed == false)
+        if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
-            transform.position += Vector3.up * 5;
-            hasBeenPlayed = true;
+            if (card.hasBeenPlayed == true && isCardTappedLand == false)
+            {
+                Debug.Log("Make one mana");
+                isCardTappedLand = true;
+            }
         }
     }
-}*/
 }

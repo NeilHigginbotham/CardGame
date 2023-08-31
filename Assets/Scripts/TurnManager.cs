@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour
     // just for simplicity every phase will be manually ended. this gets a lot more complicated if i add in instant speed stuff but perhaps
     // later it can be modified to work at instant speed.
 
+    /*
     private bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Upkeep", "Draw", "Main", "Attack", "Secondmain", "End" };
     private int currentPhaseIndex = 0;
@@ -82,5 +83,5 @@ public class TurnManager : MonoBehaviour
         {
             yield return null;
         }
-    }
+    }*/
 }

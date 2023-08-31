@@ -834,6 +834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac2fe737ceb4ca49b2b6e0e907b6d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasBeenPlayed: 0
+  handIndex: 0
+  card: {fileID: 8580808808194796875}
 --- !u!114 &1953502457757307933
 MonoBehaviour:
   m_ObjectHideFlags: 0
