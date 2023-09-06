@@ -8,14 +8,14 @@ public class Land : MonoBehaviour, IPointerClickHandler
 {
     public CardDisplay card;
 
-
-    public GameObject manasymbol;
+    GameObject Player1Mana;
+    //public GameObject Player1Mana;
     public bool isCardTappedLand = false;
 
 
     void Start()
     {
-
+        Player1Mana = GameObject.Find("Player1Mana");
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -24,9 +24,10 @@ public class Land : MonoBehaviour, IPointerClickHandler
         {
             if (card.hasBeenPlayed == true && isCardTappedLand == false)
             {
+                // If the land has been played and is untapped then we will make one mana.
                 Debug.Log("Make one mana");
                 isCardTappedLand = true;
-                manasymbol.SetActive(true);
+                Player1Mana.SetActive(false);
 
             }
         }
