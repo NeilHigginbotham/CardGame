@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 public class Land : MonoBehaviour, IPointerClickHandler
 {
     public CardDisplay card;
 
+
+    public GameObject manasymbol;
     public bool isCardTappedLand = false;
 
 
@@ -24,6 +26,8 @@ public class Land : MonoBehaviour, IPointerClickHandler
             {
                 Debug.Log("Make one mana");
                 isCardTappedLand = true;
+                manasymbol.SetActive(true);
+
             }
         }
     }
