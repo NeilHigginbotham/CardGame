@@ -8,16 +8,15 @@ public class Land : MonoBehaviour, IPointerClickHandler
 {
     public CardDisplay card;
 
-    GameObject Player1Mana;
-    public Text player1manacounter;
+    private Text player1manacounter;
     private int player1manacount = 0;
     public bool isCardTappedLand = false;
 
 
     void Start()
     {
-        Player1Mana = GameObject.Find("Player1Mana");
-        player1manacount = GameObject.Find("player1manacounter");
+        //Player1Mana = GameObject.Find("Player1Mana");
+        player1manacounter = GameObject.Find("player1manacounter").GetComponent<UnityEngine.UI.Text>();
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -36,6 +35,7 @@ public class Land : MonoBehaviour, IPointerClickHandler
     public void ManaGain()
     {
         player1manacount++;
+        UpdateText();
     }
     private void UpdateText()
     {
