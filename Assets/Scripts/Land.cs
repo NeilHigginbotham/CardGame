@@ -16,7 +16,7 @@ public class Land : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         //Player1Mana = GameObject.Find("Player1Mana");
-        player1manacounter = GameObject.Find("player1manacounter").GetComponent<UnityEngine.UI.Text>();
+        player1manacounter = GameObject.Find("player1manacounter").GetComponent<UnityEngine.UI.Text>();ZDSR
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
