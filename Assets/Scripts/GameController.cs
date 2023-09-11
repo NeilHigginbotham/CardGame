@@ -36,6 +36,9 @@ public class GameController : MonoBehaviour
     {
         // Sets variable for starting hand card draw
         DrawStartingCards(7);
+
+        // Hopefully sets our variable to 0 everytime we enter play mode
+        player1ManaCount = 0;
     }
 
 
