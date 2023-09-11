@@ -23,6 +23,9 @@ public class CardDisplay : MonoBehaviour
 
     private GameController gm;
 
+    private TextMeshProUGUI player1manacounter;
+
+
     void Start()
     {
         gm = FindObjectOfType<GameController>();
@@ -34,16 +37,32 @@ public class CardDisplay : MonoBehaviour
         healthText.text = card.health.ToString();
         manaText.text = card.manaCost.ToString();
         cardBorder.sprite = card.cardBorder;
+
+        player1manacounter = GameObject.Find("player1manacounter").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     public void PlayCard()
     {
-        if (hasBeenPlayed == false)
+        if (!hasBeenPlayed && GameController.player1ManaCount >= card.manaCost)
         {
+            GameController.player1ManaCount -= card.manaCost;
+            hasBeenPlayed = true;
+
+            UpdateManaText();
+
             StartCoroutine(PlayedDelay());
-            Debug.Log("IEnumerator active");
+            Debug.Log("Card played. New mana count:" + GameController.player1ManaCount);
         }
+        else
+        {
+            Debug.Log("Not enough mana.");
+        }
+    }
+
+    private void UpdateManaText()
+    {
+        player1manacounter.text = "x " + GameController.player1ManaCount.ToString();
     }
 
     private IEnumerator PlayedDelay()
@@ -51,7 +70,6 @@ public class CardDisplay : MonoBehaviour
         transform.position += Vector3.up * 300;
         gm.availableCardSlots[handIndex] = true;
         yield return new WaitForSeconds(0.5f);
-        hasBeenPlayed = true;
         Debug.Log("Card played");
     }
 

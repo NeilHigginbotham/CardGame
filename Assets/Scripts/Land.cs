@@ -11,15 +11,15 @@ public class Land : MonoBehaviour, IPointerClickHandler
     public CardDisplay card;
 
     private TextMeshProUGUI player1manacounter;
-    //public int player1manacount = 0;
     public bool isCardTappedLand = false;
 
 
     void Start()
     {
-        //Player1Mana = GameObject.Find("Player1Mana");
+        // Get our reference for the mana counter
         player1manacounter = GameObject.Find("player1manacounter").GetComponent<TextMeshProUGUI>();
-        //UpdateText();
+
+        // Default text update
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -29,17 +29,14 @@ public class Land : MonoBehaviour, IPointerClickHandler
             if (card.hasBeenPlayed == true && isCardTappedLand == false)
             {
                 // If the land has been played and is untapped then we will make one mana.
-                Debug.Log("Make one mana");
                 isCardTappedLand = true;
-
-
                 GameController.player1ManaCount++;
                 UpdateText();
 
             }
         }
     }
-    private void UpdateText()
+    public void UpdateText()
     {
         player1manacounter.text = "x " + GameController.player1ManaCount.ToString();
     }

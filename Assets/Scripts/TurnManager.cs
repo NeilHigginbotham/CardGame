@@ -7,8 +7,7 @@ public class TurnManager : MonoBehaviour
     // WIP     Notes for this script. phases work great. they shift every 1f currently but I want them to end differently depending on the phase or maybe
     // just for simplicity every phase will be manually ended. this gets a lot more complicated if i add in instant speed stuff but perhaps
     // later it can be modified to work at instant speed.
-
-    /*
+    // 9/11/2023 look at the unity card games chat for help on player buttons that shift phases
     private bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Upkeep", "Draw", "Main", "Attack", "Secondmain", "End" };
     private int currentPhaseIndex = 0;
@@ -73,6 +72,8 @@ public class TurnManager : MonoBehaviour
         Debug.Log("Perform your actions for this phase...");
         // You can implement player input and actions here
 
+
+
         // For the sake of example, let's wait for a few seconds
         yield return new WaitForSeconds(1f);
 
@@ -83,5 +84,5 @@ public class TurnManager : MonoBehaviour
         {
             yield return null;
         }
-    }*/
+    }
 }
