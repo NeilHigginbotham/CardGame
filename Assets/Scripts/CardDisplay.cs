@@ -6,6 +6,8 @@ using TMPro;
 public class CardDisplay : MonoBehaviour
 {
     public Card card;
+    
+    // References to the card text below as indicated for each card
 
     public TMP_Text nameText;
     public TMP_Text descriptionText;
@@ -18,12 +20,13 @@ public class CardDisplay : MonoBehaviour
     public Image cardBorder;
     public Image artworkImage;
 
-    public bool hasBeenPlayed = false;
+    public bool hasBeenPlayed = false; // Stops card from being played after being played already
+    public bool isBeingPlayed = false; // Stops card from being played over and over before it enters battlefield
     public int handIndex;
 
     private GameController gm;
 
-    private TextMeshProUGUI player1manacounter;
+    private TextMeshProUGUI player1manacounter; 
 
 
     void Start()
@@ -44,20 +47,19 @@ public class CardDisplay : MonoBehaviour
     // Update is called once per frame
     public void PlayCard()
     {
-        if (!hasBeenPlayed && GameController.player1ManaCount >= card.manaCost)
+        if (!hasBeenPlayed && !isBeingPlayed && GameController.player1ManaCount >= card.manaCost)
         {
             GameController.player1ManaCount -= card.manaCost;
-            hasBeenPlayed = true;
-
+            
             UpdateManaText();
-
+            isBeingPlayed = true;
             StartCoroutine(PlayedDelay());
             Debug.Log("Card played. New mana count:" + GameController.player1ManaCount);
         }
-        else
+        /*else
         {
             Debug.Log("Not enough mana.");
-        }
+        }*/
     }
 
     private void UpdateManaText()
@@ -69,8 +71,9 @@ public class CardDisplay : MonoBehaviour
     {
         transform.position += Vector3.up * 300;
         gm.availableCardSlots[handIndex] = true;
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("Card played");
+        yield return new WaitForSeconds(1.5f);
+        hasBeenPlayed = true;                    // was 0.5f but im adjusting it to be longer so
+        Debug.Log("Card played");                // the card is not instantly tapped after being played
     }
 
 }

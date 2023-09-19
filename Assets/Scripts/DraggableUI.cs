@@ -72,7 +72,8 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         }
     }
     private IEnumerator TapAfterPlay()
-    {
+    { 
+
         // Delay for a short period (adjust the delay as needed)
         yield return new WaitForSeconds(0.1f);
 
