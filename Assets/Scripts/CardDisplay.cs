@@ -22,6 +22,7 @@ public class CardDisplay : MonoBehaviour
 
     public bool hasBeenPlayed = false; // Stops card from being played after being played already
     public bool isBeingPlayed = false; // Stops card from being played over and over before it enters battlefield
+    public bool isOnBattlefield = false; // useful for lots of our logic for creatures and lands.
     public int handIndex;
 
     private GameController gm;
@@ -73,6 +74,7 @@ public class CardDisplay : MonoBehaviour
         gm.availableCardSlots[handIndex] = true;
         yield return new WaitForSeconds(1.5f);
         hasBeenPlayed = true;                    // was 0.5f but im adjusting it to be longer so
+        isOnBattlefield = true;
         Debug.Log("Card played");                // the card is not instantly tapped after being played
     }
 

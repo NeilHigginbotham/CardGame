@@ -25,14 +25,11 @@ public class TurnManager : MonoBehaviour
         string currentPlayerName = isPlayer1Turn ? "Player 1" : "Player 2";
         Debug.Log($"{currentPlayerName}'s Turn - {phases[currentPhaseIndex]} Phase");
 
-        // Add any phase-specific logic here
+        // Add any phase-specific logic here in the future
         switch (phases[currentPhaseIndex])
         {
             case "Untap":
                 Debug.Log("Untap phase logic");
-                break;
-            case "Upkeep":
-                Debug.Log("Upkeep phase logic       Insert logic for the phases at some point like untap and draw");
                 break;
             case "Draw":
                 Debug.Log("Draw phase logic");
