@@ -58,37 +58,38 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             {
                 if (!isDragged)
                 {
-                    StartCoroutine(TapAfterPlay());
+                    StartCoroutine(Tap());
                 }
                 else
                 {
                     isDragged = false;
                 }
             }
+            /* preserving code for tests. trying to make the untap phase do this logic automatically to untap cards on the battlefield.
             if (card.hasBeenPlayed == true & isCardTapped == true)
             {
-                StartCoroutine(UnTapAfterPlay());
-            }
+                StartCoroutine(UnTap());
+            }*/
         }
     }
-    private IEnumerator TapAfterPlay()
+    private IEnumerator Tap()
     { 
 
         // Delay for a short period (adjust the delay as needed)
         yield return new WaitForSeconds(0.1f);
 
-        // Rotate the UI object by 90 degrees
+        // Rotate the UI object by 90 degrees and render the card visually "tapped"
         rectTransform.Rotate(Vector3.back, 90f);
 
         // Card tapped bool state
         isCardTapped = true;
     }
-    private IEnumerator UnTapAfterPlay()
+    private IEnumerator UnTap()
     {
-        // Delay for a short period
+        // Delay briefly
         yield return new WaitForSeconds(0.1f);
 
-        // Rotate the UI object by 90 degrees
+        // Rotate the UI object by 90 degrees and render the card visually "untapped"
         rectTransform.Rotate(Vector3.forward, 90f);
 
         // Card untapped bool state

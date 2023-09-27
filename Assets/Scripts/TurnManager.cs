@@ -31,17 +31,16 @@ public class TurnManager : MonoBehaviour
             case "Untap":
                 Debug.Log("Untap phase logic");
                 break;
+                // create an untap function        Untap();
             case "Draw":
                 Debug.Log("Draw phase logic");
                 break;
+            // insert a draw function maybe from draw card code       Draw();
             case "Main":
                 Debug.Log("Main phase logic");
                 break;
             case "Attack":
                 Debug.Log("Attack phase logic");
-                break;
-            case "Secondmain":
-                Debug.Log("Secondmain phase logic");
                 break;
         }
 
