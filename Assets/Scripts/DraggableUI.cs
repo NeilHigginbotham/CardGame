@@ -58,7 +58,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             {
                 if (!isDragged)
                 {
-                    StartCoroutine(TapAfterPlay());
+                    StartCoroutine(Tap());
                 }
                 else
                 {
@@ -67,11 +67,11 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             }
             if (card.hasBeenPlayed == true & isCardTapped == true)
             {
-                StartCoroutine(UnTapAfterPlay());
+                StartCoroutine(Untap());
             }
         }
     }
-    private IEnumerator TapAfterPlay()
+    public IEnumerator Tap()
     { 
 
         // Delay for a short period (adjust the delay as needed)
@@ -82,17 +82,19 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
         // Card tapped bool state
         isCardTapped = true;
-    }
-    private IEnumerator UnTapAfterPlay()
+    } // 10/1  TEMPORAILY changing tap and untap IEnumerator to public so turnmanager can access them 
+    public IEnumerator Untap()
     {
         // Delay for a short period
         yield return new WaitForSeconds(0.1f);
+        if (card.hasBeenPlayed == true & isCardTapped == true)
+        {
+            // Rotate the UI object by 90 degrees if the card has been played and is tapped.
+            rectTransform.Rotate(Vector3.forward, 90f);
+            // Card untapped bool state
+            isCardTapped = false;
+        }
 
-        // Rotate the UI object by 90 degrees
-        rectTransform.Rotate(Vector3.forward, 90f);
-
-        // Card untapped bool state
-        isCardTapped = false;
     }
 
 

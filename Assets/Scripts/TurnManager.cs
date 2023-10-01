@@ -9,8 +9,10 @@ public class TurnManager : MonoBehaviour
     // later it can be modified to work at instant speed.
     // 9/11/2023 look at the unity card games notes for info on player buttons that shift phases
     private bool isPlayer1Turn = true; // Flag to track the current player's turn
-    private List<string> phases = new List<string> { "Untap", "Upkeep", "Draw", "Main", "Attack", "Secondmain", "End" };
+    private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
+
+    public DraggableUI[] untappableCards;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class TurnManager : MonoBehaviour
         {
             case "Untap":
                 Debug.Log("Untap phase logic");
+                TriggerUntapCoroutineOnAllCards(); // Trigger untap on our stuff
                 break;
             case "Draw":
                 Debug.Log("Draw phase logic");
@@ -40,8 +43,8 @@ public class TurnManager : MonoBehaviour
             case "Attack":
                 Debug.Log("Attack phase logic");
                 break;
-            case "Secondmain":
-                Debug.Log("Secondmain phase logic");
+            case "End":
+                Debug.Log("End phase logic");
                 break;
         }
 
@@ -72,7 +75,7 @@ public class TurnManager : MonoBehaviour
 
 
         // For the sake of example, let's wait for a few seconds
-        yield return new WaitForSeconds(100f);
+        yield return new WaitForSeconds(5f);
 
         phaseCompleted = true;
 
@@ -80,6 +83,14 @@ public class TurnManager : MonoBehaviour
         while (!phaseCompleted)
         {
             yield return null;
+        }
+    }
+
+    private void TriggerUntapCoroutineOnAllCards()
+    {
+        foreach (var obj in untappableCards)
+        {
+            StartCoroutine(obj.Untap());
         }
     }
 }
