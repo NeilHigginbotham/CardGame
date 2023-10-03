@@ -72,7 +72,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             }*/
         }
     }
-    private IEnumerator Tap()
+    public IEnumerator Tap()
     { 
 
         // Delay for a short period (adjust the delay as needed)
@@ -84,16 +84,22 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         // Card tapped bool state
         isCardTapped = true;
     }
-    private IEnumerator UnTap()
+    public IEnumerator UnTap()
     {
         // Delay briefly
         yield return new WaitForSeconds(0.1f);
+        if (card.isOnBattlefield == true)
+        {
+            // Rotate the UI object by 90 degrees and render the card visually "untapped"
+            rectTransform.Rotate(Vector3.forward, 90f);
 
-        // Rotate the UI object by 90 degrees and render the card visually "untapped"
-        rectTransform.Rotate(Vector3.forward, 90f);
-
-        // Card untapped bool state
-        isCardTapped = false;
+            // Card untapped bool state
+            isCardTapped = false;
+        }
+        else
+        {
+            card.isOnBattlefield = false;
+        }
     }
 
 

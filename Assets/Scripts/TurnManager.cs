@@ -76,7 +76,7 @@ public class TurnManager : MonoBehaviour
 
 
         // For the sake of example, let's wait for a few seconds
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
 
         phaseCompleted = true;
 
@@ -91,7 +91,7 @@ public class TurnManager : MonoBehaviour
     {
         foreach (var obj in untappableCards)
         {
-            StartCoroutine(obj.Untap());
+            StartCoroutine(obj.UnTap());
         }
     }
 }

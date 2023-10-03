@@ -12,6 +12,7 @@ public class Land : MonoBehaviour, IPointerClickHandler
 
     private TextMeshProUGUI player1manacounter;
     public bool isCardTappedLand = false;
+    
 
 
     void Start()
