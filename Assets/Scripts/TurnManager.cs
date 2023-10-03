@@ -37,6 +37,7 @@ public class TurnManager : MonoBehaviour
             case "Draw":
                 Debug.Log("Draw phase logic");
                 break;
+            // insert a draw function maybe from draw card code       Draw();
             case "Main":
                 Debug.Log("Main phase logic");
                 break;
@@ -91,7 +92,6 @@ public class TurnManager : MonoBehaviour
         foreach (var obj in untappableCards)
         {
             StartCoroutine(obj.Untap());
-
         }
     }
 }

@@ -65,36 +65,35 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                     isDragged = false;
                 }
             }
+            /* preserving code for tests. trying to make the untap phase do this logic automatically to untap cards on the battlefield.
             if (card.hasBeenPlayed == true & isCardTapped == true)
             {
-                StartCoroutine(Untap());
-            }
+                StartCoroutine(UnTap());
+            }*/
         }
     }
-    public IEnumerator Tap()
+    private IEnumerator Tap()
     { 
 
         // Delay for a short period (adjust the delay as needed)
         yield return new WaitForSeconds(0.1f);
 
-        // Rotate the UI object by 90 degrees
+        // Rotate the UI object by 90 degrees and render the card visually "tapped"
         rectTransform.Rotate(Vector3.back, 90f);
 
         // Card tapped bool state
         isCardTapped = true;
-    } // 10/1  TEMPORAILY changing tap and untap IEnumerator to public so turnmanager can access them 
-    public IEnumerator Untap()
+    }
+    private IEnumerator UnTap()
     {
-        // Delay for a short period
+        // Delay briefly
         yield return new WaitForSeconds(0.1f);
-        if (card.hasBeenPlayed == true & isCardTapped == true)
-        {
-            // Rotate the UI object by 90 degrees if the card has been played and is tapped.
-            rectTransform.Rotate(Vector3.forward, 90f);
-            // Card untapped bool state
-            isCardTapped = false;
-        }
 
+        // Rotate the UI object by 90 degrees and render the card visually "untapped"
+        rectTransform.Rotate(Vector3.forward, 90f);
+
+        // Card untapped bool state
+        isCardTapped = false;
     }
 
 
