@@ -16,7 +16,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public bool isRightClickDown = false;
 
 
-
+    private Land land;
     public CardDisplay card;
 
     private void Start()
@@ -84,9 +84,8 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         // Card tapped bool state
         isCardTapped = true;
     }
-    public IEnumerator UnTap()
+    public IEnumerator UnTap()  // Untap the card if it is on the battlefield. This triggers in the TurnManager Untap Step
     {
-        // Delay briefly
         yield return new WaitForSeconds(0.1f);
         if (card.isOnBattlefield == true)
         {
@@ -99,6 +98,19 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         else
         {
             card.isOnBattlefield = false;
+        }
+    }
+
+    public IEnumerator ManaUnTap() // Trying to set the bool and make the logic understand that the land is untapped
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (card.isOnBattlefield == true)
+        {
+            land.isCardTappedLand = false;
+        }
+        else // Not sure if this else statement will work properly
+        {
+            land.isCardTappedLand = true;
         }
     }
 
