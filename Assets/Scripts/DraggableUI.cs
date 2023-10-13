@@ -16,7 +16,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public bool isRightClickDown = false;
 
 
-    private Land land;
+    public Land land;
     public CardDisplay card;
 
     private void Start()
@@ -87,7 +87,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public IEnumerator UnTap()  // Untap the card if it is on the battlefield. This triggers in the TurnManager Untap Step
     {
         yield return new WaitForSeconds(0.1f);
-        if (card.isOnBattlefield == true)
+        if (card.isOnBattlefield == true & isCardTapped == true)
         {
             // Rotate the UI object by 90 degrees and render the card visually "untapped"
             rectTransform.Rotate(Vector3.forward, 90f);
