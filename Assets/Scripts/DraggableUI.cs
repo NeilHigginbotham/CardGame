@@ -113,6 +113,4 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             land.isCardTappedLand = true;
         }
     }
-
-
 }
