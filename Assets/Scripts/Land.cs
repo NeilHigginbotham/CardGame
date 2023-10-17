@@ -33,7 +33,7 @@ public class Land : MonoBehaviour, IPointerClickHandler
                 isCardTappedLand = true;
                 GameController.player1ManaCount++;
                 UpdateText();
-
+                Debug.Log("land produces mana");
             }
         }
     }
@@ -48,6 +48,7 @@ public class Land : MonoBehaviour, IPointerClickHandler
         if (card.isOnBattlefield == true)
         {
             isCardTappedLand = false;
+            Debug.Log("lands untapped");
         }
         else
         {

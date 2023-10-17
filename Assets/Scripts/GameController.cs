@@ -15,22 +15,6 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI deckSizeText;
     public static int player1ManaCount = 0;
 
-    /*
-    private void Awake()
-    {
-        // Keeps game manager across scenes
-        DontDestroyOnLoad(gameObject);
-
-        // Designates event
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // Reset the player1ManaCount
-        player1ManaCount = 0;
-        Debug.Log("mana count reset");
-    } */
 
     private void Start()
     {

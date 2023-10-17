@@ -821,6 +821,8 @@ MonoBehaviour:
   cardBorder: {fileID: 8580808808314796874}
   artworkImage: {fileID: 8580808807200306958}
   hasBeenPlayed: 0
+  isBeingPlayed: 0
+  isOnBattlefield: 0
   handIndex: 0
 --- !u!114 &1953502457757307933
 MonoBehaviour:
@@ -891,7 +893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 8580808808194796875}
-  manasymbol: {fileID: 0}
   isCardTappedLand: 0
 --- !u!114 &7486880395550264219
 MonoBehaviour:
@@ -908,6 +909,7 @@ MonoBehaviour:
   isCardTapped: 0
   isDragged: 0
   isRightClickDown: 0
+  land: {fileID: 8580808808194796872}
   card: {fileID: 8580808808194796875}
 --- !u!114 &6404859565023319718
 MonoBehaviour:

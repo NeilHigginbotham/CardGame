@@ -65,11 +65,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                     isDragged = false;
                 }
             }
-            /* preserving code for tests. trying to make the untap phase do this logic automatically to untap cards on the battlefield.
-            if (card.hasBeenPlayed == true & isCardTapped == true)
-            {
-                StartCoroutine(UnTap());
-            }*/
         }
     }
     public IEnumerator Tap()
