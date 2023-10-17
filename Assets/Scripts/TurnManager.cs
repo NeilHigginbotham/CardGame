@@ -13,6 +13,9 @@ public class TurnManager : MonoBehaviour
     private int currentPhaseIndex = 0;
 
     public DraggableUI[] untappableCards;
+    public Land[] unmanatappableCards;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -92,8 +95,15 @@ public class TurnManager : MonoBehaviour
         foreach (var obj in untappableCards)
         {
             StartCoroutine(obj.UnTap());
-            StartCoroutine(obj.ManaUnTap());
 
+        }
+    }
+
+    private void TriggerManaUntapCoroutineOnAllCards()
+    {
+        foreach (var obj in unmanatappableCards)
+        {
+            StartCoroutine(obj.ManaUnTap());
 
         }
     }

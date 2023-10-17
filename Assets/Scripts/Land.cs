@@ -41,4 +41,17 @@ public class Land : MonoBehaviour, IPointerClickHandler
     {
         player1manacounter.text = "x " + GameController.player1ManaCount.ToString();
     }
+
+    public IEnumerator ManaUnTap() // Trying to set the bool and make the logic understand that the land is untapped
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (card.isOnBattlefield == true)
+        {
+            isCardTappedLand = false;
+        }
+        else
+        {
+            card.isOnBattlefield = false;
+        }
+    }
 }

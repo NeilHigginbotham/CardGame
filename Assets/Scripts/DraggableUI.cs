@@ -100,7 +100,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             card.isOnBattlefield = false;
         }
     }
-
+    /*
     public IEnumerator ManaUnTap() // Trying to set the bool and make the logic understand that the land is untapped
     {
         yield return new WaitForSeconds(0.1f);
@@ -108,9 +108,9 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         {
             land.isCardTappedLand = false;
         }
-        else // Not sure if this else statement will work properly
+        else
         {
-            land.isCardTappedLand = true;
+            card.isOnBattlefield = false;
         }
-    }
+    }*/
 }
