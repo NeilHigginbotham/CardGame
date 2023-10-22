@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -12,8 +14,12 @@ public class TurnManager : MonoBehaviour
     private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
 
+
+    // Allows us to designate a group of objects to activate the coroutine on.
     public DraggableUI[] untappableCards;
-    public Land[] unmanatappableCards;
+    public Land[] unmanatappableCards;     
+
+    private TextMeshProUGUI player1manacounter; // Reference to the mana text UI element
 
 
 
@@ -22,6 +28,8 @@ public class TurnManager : MonoBehaviour
     {
         // Initialize the game with Player 1's turn
         StartCoroutine(StartPlayerTurn());
+
+        player1manacounter = GameObject.Find("player1manacounter").GetComponent<TextMeshProUGUI>(); // Statement allowing us to manipulate the mana text
     }
 
     // Coroutine to start a player's turn
@@ -50,6 +58,8 @@ public class TurnManager : MonoBehaviour
                 break;
             case "End":
                 Debug.Log("End phase logic");
+                GameController.player1ManaCount = 0;  // Set the mana count to zero at the end of the turn
+                player1manacounter.text = " " + GameController.player1ManaCount.ToString();
                 break;
         }
 
