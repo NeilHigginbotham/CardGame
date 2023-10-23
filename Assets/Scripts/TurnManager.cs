@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
     // just for simplicity every phase will be manually ended. this gets a lot more complicated if i add in instant speed stuff but perhaps
     // later it can be modified to work at instant speed.
     // 9/11/2023 look at the unity card games notes for info on player buttons that shift phases
-    private bool isPlayer1Turn = true; // Flag to track the current player's turn
+    public bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
 
@@ -66,6 +66,8 @@ public class TurnManager : MonoBehaviour
         // Let the player take actions during the phase
         yield return StartCoroutine(PlayerActionsDuringPhase());
 
+
+        /*
         // Move to the next phase
         currentPhaseIndex = (currentPhaseIndex + 1) % phases.Count;
 
@@ -74,8 +76,19 @@ public class TurnManager : MonoBehaviour
         {
             isPlayer1Turn = !isPlayer1Turn;
         }
-
+        */ //TEST MOVING THIS TO START PHASE METHOD    A few bugs going on.
         StartCoroutine(StartPlayerTurn());
+    }
+
+    public void StartNextPhase()
+    {
+        currentPhaseIndex = (currentPhaseIndex + 1) % phases.Count;
+
+        // Check if all phases are done and move to the next player's turn
+        if (currentPhaseIndex == 0)
+        {
+            isPlayer1Turn = !isPlayer1Turn;
+        }
     }
 
     // Coroutine for player actions during a phase
@@ -85,11 +98,10 @@ public class TurnManager : MonoBehaviour
 
         // Display instructions to the player and wait for their actions
         Debug.Log("Perform your actions for this phase...");
-        // You can implement player input and actions here
 
 
 
-        // For the sake of example, let's wait for a few seconds
+        // Pause for a few seconds
         yield return new WaitForSeconds(2f);
 
         phaseCompleted = true;
