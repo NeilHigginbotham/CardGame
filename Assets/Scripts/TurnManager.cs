@@ -13,7 +13,7 @@ public class TurnManager : MonoBehaviour
     public bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
-
+    bool buttonPressed;
 
     // Allows us to designate a group of objects to activate the coroutine on.
     public DraggableUI[] untappableCards;
@@ -21,7 +21,7 @@ public class TurnManager : MonoBehaviour
 
     private TextMeshProUGUI player1manacounter; // Reference to the mana text UI element
 
-
+    public Button advanceButton;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +91,14 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    public void PhaseButtonPressed()
+    {
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
+        bool buttonPressed = true;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
+    }
+
+
     // Coroutine for player actions during a phase
     IEnumerator PlayerActionsDuringPhase()
     {
@@ -99,11 +107,22 @@ public class TurnManager : MonoBehaviour
         // Display instructions to the player and wait for their actions
         Debug.Log("Perform your actions for this phase...");
 
+        bool buttonPressed = false;
 
+        while (!buttonPressed)
+        {
+            // Check if the button is pressed
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                buttonPressed = true;
+            }
+
+            yield return null;
+        }
 
         // Pause for a few seconds
-        yield return new WaitForSeconds(2f);
-
+        // yield return new WaitForSeconds(2f);
+        // ^ Useful if we want to test speeding through phases.
         phaseCompleted = true;
 
         // Wait until the player has completed their actions

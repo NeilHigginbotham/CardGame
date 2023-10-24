@@ -15,6 +15,7 @@ public class AdvancePhase : MonoBehaviour
         advanceButton = GetComponent<Button>();
 
         advanceButton.onClick.AddListener(AdvanceToPhase);
+        advanceButton.onClick.AddListener(PhaseButtonTrigger);
     }
 
     // Update is called once per frame
@@ -26,5 +27,11 @@ public class AdvancePhase : MonoBehaviour
     private void AdvanceToPhase()
     {
         turnManager.StartNextPhase();
+    }
+
+
+    private void PhaseButtonTrigger()
+    {
+        turnManager.PhaseButtonPressed();
     }
 }
