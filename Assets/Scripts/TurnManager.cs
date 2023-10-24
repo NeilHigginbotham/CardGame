@@ -13,7 +13,7 @@ public class TurnManager : MonoBehaviour
     public bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
-    bool buttonPressed;
+    bool buttonPressed = false;
 
     // Allows us to designate a group of objects to activate the coroutine on.
     public DraggableUI[] untappableCards;
@@ -79,7 +79,7 @@ public class TurnManager : MonoBehaviour
         */ //TEST MOVING THIS TO START PHASE METHOD    A few bugs going on.
         StartCoroutine(StartPlayerTurn());
     }
-
+    /*
     public void StartNextPhase()
     {
         currentPhaseIndex = (currentPhaseIndex + 1) % phases.Count;
@@ -89,7 +89,7 @@ public class TurnManager : MonoBehaviour
         {
             isPlayer1Turn = !isPlayer1Turn;
         }
-    }
+    }*/
 
     public void PhaseButtonPressed()
     {
@@ -115,6 +115,13 @@ public class TurnManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 buttonPressed = true;
+                currentPhaseIndex = (currentPhaseIndex + 1) % phases.Count;
+
+                // Check if all phases are done and move to the next player's turn
+                if (currentPhaseIndex == 0)
+                {
+                    isPlayer1Turn = !isPlayer1Turn;
+                }
             }
 
             yield return null;
@@ -132,6 +139,10 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    public void StartNextPhase()
+    {
+        Debug.Log("A");
+    }
     private void TriggerUntapCoroutineOnAllCards()
     {
         foreach (var obj in untappableCards)

@@ -23,7 +23,7 @@ public class AdvancePhase : MonoBehaviour
     {
         advanceButton.interactable = turnManager.isPlayer1Turn;
     }
-
+    
     private void AdvanceToPhase()
     {
         turnManager.StartNextPhase();
