@@ -23,6 +23,12 @@ public class TurnManager : MonoBehaviour
 
     public Button advanceButton;
 
+    public Button untapButton;
+    public Button drawButton;
+    public Button mainButton;
+    public Button attackButton;
+    public Button endButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,19 +51,24 @@ public class TurnManager : MonoBehaviour
                 Debug.Log("Untap phase logic");
                 TriggerUntapCoroutineOnAllCards(); // Trigger untap on our stuff
                 TriggerManaUntapCoroutineOnAllCards(); // Tells our lands they can make mana again
+                HighlightButton(untapButton);
                 break;
             case "Draw":
                 Debug.Log("Draw phase logic");
+                HighlightButton(drawButton);
                 break;
             // insert a draw function maybe from draw card code       Draw();
             case "Main":
                 Debug.Log("Main phase logic");
+                HighlightButton(mainButton);
                 break;
             case "Attack":
                 Debug.Log("Attack phase logic");
+                HighlightButton(attackButton);
                 break;
             case "End":
                 Debug.Log("End phase logic");
+
                 GameController.player1ManaCount = 0;  // Set the mana count to zero at the end of the turn
                 player1manacounter.text = " " + GameController.player1ManaCount.ToString();
                 break;
