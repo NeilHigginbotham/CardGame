@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class TurnManager : MonoBehaviour
     public bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
-    bool buttonPressed = false;
+    //bool buttonPressed = false;
 
     // Allows us to designate a group of objects to activate the coroutine on.
     public DraggableUI[] untappableCards;
@@ -71,6 +71,7 @@ public class TurnManager : MonoBehaviour
 
                 GameController.player1ManaCount = 0;  // Set the mana count to zero at the end of the turn
                 player1manacounter.text = " " + GameController.player1ManaCount.ToString();
+                HighlightButton(endButton);
                 break;
         }
 
@@ -131,7 +132,9 @@ public class TurnManager : MonoBehaviour
                 // Check if all phases are done and move to the next player's turn
                 if (currentPhaseIndex == 0)
                 {
-                    isPlayer1Turn = !isPlayer1Turn;
+                    isPlayer1Turn = !isPlayer1Turn; // Determine if it is player1's turn
+
+                    ResetButtonColors();  // Reset the button at at the end of phase
                 }
             }
 
@@ -150,6 +153,37 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    private void HighlightButton(Button buttonToHighlight)
+    {
+        ColorBlock colors = buttonToHighlight.colors;
+        colors.normalColor = Color.black;
+        buttonToHighlight.colors = colors;
+    }
+    private void ResetButtonColors()
+    {
+        // Reset all button colors to their default values
+        ColorBlock colors;
+
+        colors = untapButton.colors;
+        colors.normalColor = Color.white; 
+        untapButton.colors = colors;
+
+        colors = drawButton.colors;
+        colors.normalColor = Color.white; 
+        drawButton.colors = colors;
+
+        colors = mainButton.colors;
+        colors.normalColor = Color.white; 
+        mainButton.colors = colors;
+
+        colors = attackButton.colors;
+        colors.normalColor = Color.white; 
+        attackButton.colors = colors;
+
+        colors = endButton.colors;
+        colors.normalColor = Color.white; 
+        endButton.colors = colors;
+    }
     public void StartNextPhase()
     {
         Debug.Log("A");

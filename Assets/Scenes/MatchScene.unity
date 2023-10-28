@@ -8994,6 +8994,11 @@ MonoBehaviour:
   - {fileID: 1677978955}
   - {fileID: 1696032253}
   advanceButton: {fileID: 417714904}
+  untapButton: {fileID: 1482703786}
+  drawButton: {fileID: 1513982492}
+  mainButton: {fileID: 1173839615}
+  attackButton: {fileID: 686703533}
+  endButton: {fileID: 1909911925}
 --- !u!114 &2015310948
 MonoBehaviour:
   m_ObjectHideFlags: 0
