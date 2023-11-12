@@ -30,7 +30,9 @@ public class TurnManager : MonoBehaviour
     public Button endButton;
     public GameController controller;
 
-    public bool isMainPhase = false;
+    public bool isMainPhase = false; // Bool that determines whether it is the main phase or not
+
+    public bool canPlayLand = true; //WIP
 
     // Start is called before the first frame update
     void Start()

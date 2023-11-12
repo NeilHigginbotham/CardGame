@@ -16,6 +16,8 @@ public class Card : ScriptableObject
     public int attack;
     public int health;
 
+    public string cardType;
+
     public void Print()
     {
         Debug.Log(name + ": " + description + "This card costs: " + manaCost);

@@ -19,3 +19,4 @@ MonoBehaviour:
   manaCost: 0
   attack: 0
   health: 0
+  cardType: Land
