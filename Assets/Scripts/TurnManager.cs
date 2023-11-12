@@ -28,6 +28,9 @@ public class TurnManager : MonoBehaviour
     public Button mainButton;
     public Button attackButton;
     public Button endButton;
+    public GameController controller;
+
+    public bool isMainPhase = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,15 +59,18 @@ public class TurnManager : MonoBehaviour
             case "Draw":
                 Debug.Log("Draw phase logic");
                 HighlightButton(drawButton);
+                controller.DrawCard();
                 break;
             // insert a draw function maybe from draw card code       Draw();
             case "Main":
                 Debug.Log("Main phase logic");
                 HighlightButton(mainButton);
+                isMainPhase = true;
                 break;
             case "Attack":
                 Debug.Log("Attack phase logic");
                 HighlightButton(attackButton);
+                isMainPhase = false;
                 break;
             case "End":
                 Debug.Log("End phase logic");
@@ -103,7 +109,7 @@ public class TurnManager : MonoBehaviour
         }
     }*/
 
-    public void PhaseButtonPressed()
+    public void PhaseButtonPressed() //The button isn't currently used because we are instead letting the "Z" key progress the phases
     {
 #pragma warning disable CS0219 // Variable is assigned but its value is never used
         bool buttonPressed = true;

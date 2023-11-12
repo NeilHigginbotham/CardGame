@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class CardDisplay : MonoBehaviour
 {
-    public Card card;
-    
+
+
     // References to the card text below as indicated for each card
 
     public TMP_Text nameText;
@@ -26,6 +26,8 @@ public class CardDisplay : MonoBehaviour
     public int handIndex;
 
     private GameController gm;
+    public Card card;
+    private TurnManager turnManager;
 
     private TextMeshProUGUI player1manacounter; 
 
@@ -43,12 +45,14 @@ public class CardDisplay : MonoBehaviour
         cardBorder.sprite = card.cardBorder;
 
         player1manacounter = GameObject.Find("player1manacounter").GetComponent<TextMeshProUGUI>();
+        turnManager = FindObjectOfType<TurnManager>();
+
     }
 
     // Update is called once per frame
     public void PlayCard()
     {
-        if (!hasBeenPlayed && !isBeingPlayed && GameController.player1ManaCount >= card.manaCost)
+        if (!hasBeenPlayed && !isBeingPlayed && GameController.player1ManaCount >= card.manaCost && turnManager.isMainPhase)
         {
             GameController.player1ManaCount -= card.manaCost;
             
