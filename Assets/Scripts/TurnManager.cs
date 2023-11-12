@@ -30,9 +30,10 @@ public class TurnManager : MonoBehaviour
     public Button endButton;
     public GameController controller;
 
-    public bool isMainPhase = false; // Bool that determines whether it is the main phase or not
+    public bool isMainPhase = false; // Bool that determines whether we can play cards or not
+    public bool isAttackPhase = false; // Bool that determines whether we can attack or not
 
-    public bool canPlayLand = true; //WIP
+    public bool canPlayLand = true;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,7 @@ public class TurnManager : MonoBehaviour
                 TriggerUntapCoroutineOnAllCards(); // Trigger untap on our stuff
                 TriggerManaUntapCoroutineOnAllCards(); // Tells our lands they can make mana again
                 HighlightButton(untapButton);
+                canPlayLand = true;
                 break;
             case "Draw":
                 Debug.Log("Draw phase logic");
@@ -73,8 +75,10 @@ public class TurnManager : MonoBehaviour
                 Debug.Log("Attack phase logic");
                 HighlightButton(attackButton);
                 isMainPhase = false;
+                isAttackPhase = true;
                 break;
             case "End":
+                isAttackPhase = false;
                 Debug.Log("End phase logic");
 
                 GameController.player1ManaCount = 0;  // Set the mana count to zero at the end of the turn

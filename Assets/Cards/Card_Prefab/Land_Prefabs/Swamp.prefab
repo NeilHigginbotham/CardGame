@@ -812,7 +812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550f4c188141ce941b1d1f732a262a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: f97a4366e270a964aa183894d4838ee4, type: 2}
   nameText: {fileID: 8580808806678428930}
   descriptionText: {fileID: 8580808808561601531}
   manaText: {fileID: 8580808807701322461}
@@ -824,6 +823,7 @@ MonoBehaviour:
   isBeingPlayed: 0
   isOnBattlefield: 0
   handIndex: 0
+  card: {fileID: 11400000, guid: f97a4366e270a964aa183894d4838ee4, type: 2}
 --- !u!114 &1953502457757307933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8580808808194796875}
         m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayLandCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

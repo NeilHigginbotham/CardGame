@@ -62,15 +62,16 @@ public class CardDisplay : MonoBehaviour
             Debug.Log("Card played. New mana count:" + GameController.player1ManaCount);
         }
     }
-    public void PlayLandCard()  /////////////////// WIP
+    public void PlayLandCard()
     {
-        if (!hasBeenPlayed && !isBeingPlayed && GameController.player1ManaCount >= card.manaCost && turnManager.isMainPhase)
+        if (!hasBeenPlayed && !isBeingPlayed && GameController.player1ManaCount >= card.manaCost && turnManager.isMainPhase && turnManager.canPlayLand)
         {
             GameController.player1ManaCount -= card.manaCost;
 
             UpdateManaText();
             isBeingPlayed = true;
             StartCoroutine(PlayedDelay());
+            turnManager.canPlayLand = false;
             Debug.Log("Card played. New mana count:" + GameController.player1ManaCount);
         }
     }

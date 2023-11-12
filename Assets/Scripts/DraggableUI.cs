@@ -18,6 +18,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     public Land land;
     public CardDisplay card;
+    private TurnManager turnManager;
 
     private void Start()
     {
