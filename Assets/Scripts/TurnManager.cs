@@ -34,6 +34,7 @@ public class TurnManager : MonoBehaviour
     public bool isAttackPhase = false; // Bool that determines whether we can attack or not
 
     public bool canPlayLand = true;
+    public bool phaseReady = true;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,6 @@ public class TurnManager : MonoBehaviour
                 HighlightButton(drawButton);
                 controller.DrawCard();
                 break;
-            // insert a draw function maybe from draw card code       Draw();
             case "Main":
                 Debug.Log("Main phase logic");
                 HighlightButton(mainButton);
@@ -76,6 +76,9 @@ public class TurnManager : MonoBehaviour
                 HighlightButton(attackButton);
                 isMainPhase = false;
                 isAttackPhase = true;
+                // Insert way to initiatize and complete the attacking in Combat manager here. Upon completion of combat, the phaseReady bool
+                // will change and we can move to the end step.
+                phaseReady = false;
                 break;
             case "End":
                 isAttackPhase = false;
@@ -133,7 +136,7 @@ public class TurnManager : MonoBehaviour
 
         bool buttonPressed = false;
 
-        while (!buttonPressed)
+        while (!buttonPressed & phaseReady = true)
         {
             // Check if the button is pressed
             if (Input.GetKeyDown(KeyCode.Z))
