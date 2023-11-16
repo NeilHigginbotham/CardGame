@@ -76,9 +76,10 @@ public class TurnManager : MonoBehaviour
                 HighlightButton(attackButton);
                 isMainPhase = false;
                 isAttackPhase = true;
+                phaseReady = false;
                 // Insert way to initiatize and complete the attacking in Combat manager here. Upon completion of combat, the phaseReady bool
                 // will change and we can move to the end step.
-                phaseReady = false;
+
                 break;
             case "End":
                 isAttackPhase = false;
@@ -118,7 +119,8 @@ public class TurnManager : MonoBehaviour
         }
     }*/
 
-    public void PhaseButtonPressed() //The button isn't currently used because we are instead letting the "Z" key progress the phases
+    public void PhaseButtonPressed() //The button isn't currently used because we are instead letting the "Z" key progress the phases.
+        // But it could be used so there are additional controls in the game.
     {
 #pragma warning disable CS0219 // Variable is assigned but its value is never used
         bool buttonPressed = true;
@@ -136,7 +138,7 @@ public class TurnManager : MonoBehaviour
 
         bool buttonPressed = false;
 
-        while (!buttonPressed & phaseReady = true)
+        while (!buttonPressed & phaseReady)
         {
             // Check if the button is pressed
             if (Input.GetKeyDown(KeyCode.Z))
