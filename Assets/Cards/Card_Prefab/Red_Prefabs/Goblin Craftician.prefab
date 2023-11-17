@@ -973,6 +973,7 @@ GameObject:
   - component: {fileID: 3706404790099809708}
   - component: {fileID: 3706404790099809699}
   - component: {fileID: -1262647517803795577}
+  - component: {fileID: -3522821298800679281}
   m_Layer: 0
   m_Name: Goblin Craftician
   m_TagString: Untagged
@@ -1015,7 +1016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550f4c188141ce941b1d1f732a262a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 5a152b5a417ba734caeff2e29b7203a5, type: 2}
   nameText: {fileID: 3706404789354941873}
   descriptionText: {fileID: 3706404789769005108}
   manaText: {fileID: 3706404789531178291}
@@ -1024,7 +1024,10 @@ MonoBehaviour:
   cardBorder: {fileID: 3706404789269318301}
   artworkImage: {fileID: 3706404789519173259}
   hasBeenPlayed: 0
+  isBeingPlayed: 0
+  isOnBattlefield: 0
   handIndex: 0
+  card: {fileID: 11400000, guid: 5a152b5a417ba734caeff2e29b7203a5, type: 2}
 --- !u!114 &-1262647517803795577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,3 +1084,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-3522821298800679281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3706404790099809709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee97a1bf0a1ca3e40a539a3ac5d5958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
+  toughness: 1
+  isAttacking: 0
+  isBlocking: 0
+  playerOwned: 0
