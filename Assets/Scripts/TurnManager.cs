@@ -32,7 +32,7 @@ public class TurnManager : MonoBehaviour
     public bool canPlayLand = true;
     public bool phaseReady = true;
     public bool isPlayerTurn = true;
-    public bool isPlayer2Turn = false;
+    public bool isAITurn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,11 +62,12 @@ public class TurnManager : MonoBehaviour
             case "Draw":
                 Debug.Log("Draw phase logic");
                 HighlightButton(drawButton);
-                /*
+
                 if (isPlayerTurn)
                 {
                     controller.DrawCard();
-                }*/
+                }
+
                 break;
             case "Main":
                 Debug.Log("Main phase logic");
@@ -77,6 +78,7 @@ public class TurnManager : MonoBehaviour
                 Debug.Log("Attack phase logic");
                 HighlightButton(attackButton);
                 isMainPhase = false;
+                isAttackPhase = true;
                 /* isAttackPhase = true;
                 phaseReady = false;
                 // Insert way to initiatize and complete the attacking in Combat manager here. Upon completion of combat, the phaseReady bool
@@ -84,9 +86,19 @@ public class TurnManager : MonoBehaviour
                 */
                 break;
             case "End":
-                isAttackPhase = false;
                 Debug.Log("End phase logic");
-
+                isAttackPhase = false;
+                if (isPlayerTurn)
+                {
+                    isAITurn = true;
+                    isPlayerTurn = false;
+                }
+                else
+                {
+                    isAITurn = false;
+                    isPlayerTurn = true;
+                }
+                
                 GameController.player1ManaCount = 0;  // Set the mana count to zero at the end of the turn
                 player1manacounter.text = " " + GameController.player1ManaCount.ToString();
                 HighlightButton(endButton);
