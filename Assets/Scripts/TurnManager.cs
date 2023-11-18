@@ -6,10 +6,6 @@ using UnityEngine.UI;
 
 public class TurnManager : MonoBehaviour
 {
-    // WIP     Notes for this script. phases work great. they shift every 1f currently but I want them to end differently depending on the phase or maybe
-    // just for simplicity every phase will be manually ended. this gets a lot more complicated if i add in instant speed stuff but perhaps
-    // later it can be modified to work at instant speed.
-    // 9/11/2023 look at the unity card games notes for info on player buttons that shift phases
     public bool isPlayer1Turn = true; // Flag to track the current player's turn
     private List<string> phases = new List<string> { "Untap", "Draw", "Main", "Attack", "End" };
     private int currentPhaseIndex = 0;
@@ -35,6 +31,8 @@ public class TurnManager : MonoBehaviour
 
     public bool canPlayLand = true;
     public bool phaseReady = true;
+    public bool isPlayerTurn = true;
+    public bool isPlayer2Turn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +62,11 @@ public class TurnManager : MonoBehaviour
             case "Draw":
                 Debug.Log("Draw phase logic");
                 HighlightButton(drawButton);
-                controller.DrawCard();
+                /*
+                if (isPlayerTurn)
+                {
+                    controller.DrawCard();
+                }*/
                 break;
             case "Main":
                 Debug.Log("Main phase logic");
@@ -75,11 +77,11 @@ public class TurnManager : MonoBehaviour
                 Debug.Log("Attack phase logic");
                 HighlightButton(attackButton);
                 isMainPhase = false;
-                isAttackPhase = true;
+                /* isAttackPhase = true;
                 phaseReady = false;
                 // Insert way to initiatize and complete the attacking in Combat manager here. Upon completion of combat, the phaseReady bool
                 // will change and we can move to the end step.
-
+                */
                 break;
             case "End":
                 isAttackPhase = false;
@@ -94,19 +96,20 @@ public class TurnManager : MonoBehaviour
         // Let the player take actions during the phase
         yield return StartCoroutine(PlayerActionsDuringPhase());
 
-
         /*
-        // Move to the next phase
+        //
         currentPhaseIndex = (currentPhaseIndex + 1) % phases.Count;
-
-        // Check if all phases are done and move to the next player's turn
+        
+        // Check if all phases are done and move to the next player's turn. The player turns are tracked by the following logic.
         if (currentPhaseIndex == 0)
         {
             isPlayer1Turn = !isPlayer1Turn;
         }
-        */ //TEST MOVING THIS TO START PHASE METHOD    A few bugs going on.
+        */
         StartCoroutine(StartPlayerTurn());
+        
     }
+
     /*
     public void StartNextPhase()
     {
@@ -169,7 +172,6 @@ public class TurnManager : MonoBehaviour
             yield return null;
         }
     }
-
     private void HighlightButton(Button buttonToHighlight)
     {
         ColorBlock colors = buttonToHighlight.colors;
