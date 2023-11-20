@@ -24,7 +24,9 @@ public class TurnManager : MonoBehaviour
     public Button mainButton;
     public Button attackButton;
     public Button endButton;
+
     public GameController controller;
+    public OpponentAI OppAi;
 
     public bool isMainPhase = false; // Bool that determines whether we can play cards or not
     public bool isAttackPhase = false; // Bool that determines whether we can attack or not
@@ -72,7 +74,14 @@ public class TurnManager : MonoBehaviour
             case "Main":
                 Debug.Log("Main phase logic");
                 HighlightButton(mainButton);
+
                 isMainPhase = true;
+
+                if (isAITurn)
+                {
+                    OppAi.AiPlayLand();
+                }
+
                 break;
             case "Attack":
                 Debug.Log("Attack phase logic");
