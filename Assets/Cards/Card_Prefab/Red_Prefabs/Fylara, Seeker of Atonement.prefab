@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 7454282276644110211}
   - component: {fileID: -4183118281449528829}
   - component: {fileID: 2359545830761354739}
+  - component: {fileID: -3578498726284717193}
   m_Layer: 0
   m_Name: Fylara, Seeker of Atonement
   m_TagString: Untagged
@@ -1023,7 +1024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550f4c188141ce941b1d1f732a262a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: b747d27b02a81b246a3c55a43495d49a, type: 2}
   nameText: {fileID: 5423812678311068592}
   descriptionText: {fileID: 5423812678018439296}
   manaText: {fileID: 5423812677649650118}
@@ -1032,7 +1032,10 @@ MonoBehaviour:
   cardBorder: {fileID: 5423812676389731865}
   artworkImage: {fileID: 5423812677791119950}
   hasBeenPlayed: 0
+  isBeingPlayed: 0
+  isOnBattlefield: 0
   handIndex: 0
+  card: {fileID: 11400000, guid: b747d27b02a81b246a3c55a43495d49a, type: 2}
 --- !u!114 &5423812678459398247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,4 +1134,22 @@ MonoBehaviour:
   isCardTapped: 0
   isDragged: 0
   isRightClickDown: 0
+  land: {fileID: 0}
   card: {fileID: 5423812678459398240}
+--- !u!114 &-3578498726284717193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423812678459398245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee97a1bf0a1ca3e40a539a3ac5d5958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 2
+  toughness: 2
+  isAttacking: 0
+  isBlocking: 0
+  playerOwned: 1

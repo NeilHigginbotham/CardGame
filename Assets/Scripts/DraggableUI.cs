@@ -19,6 +19,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public Land land;
     public CardDisplay card;
     private TurnManager turnManager;
+    private CombatManager combatManager;
 
     private void Start()
     {
@@ -60,6 +61,13 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                 if (!isDragged)
                 {
                     StartCoroutine(Tap());
+
+                    //combatManager.DeclareAttack(this.GetComponent<Creature>());
+                    Creature creature = this.GetComponent<Creature>();
+
+                    creature.StartAttack();
+
+                    combatManager.DeclareAttack(creature);
                 }
                 else
                 {

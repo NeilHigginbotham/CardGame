@@ -20,4 +20,9 @@ public class Creature : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void StartAttack()
+    {
+        isAttacking = true;
+    }
 }
