@@ -79,7 +79,7 @@ public class TurnManager : MonoBehaviour
 
                 if (isAITurn)
                 {
-                    OppAi.AiPlayLand();
+                    OppAi.AiPlays();
                 }
 
                 break;
@@ -107,6 +107,7 @@ public class TurnManager : MonoBehaviour
                     isAITurn = false;
                     isPlayerTurn = true;
                 }
+
                 
                 GameController.player1ManaCount = 0;  // Set the mana count to zero at the end of the turn
                 player1manacounter.text = " " + GameController.player1ManaCount.ToString();

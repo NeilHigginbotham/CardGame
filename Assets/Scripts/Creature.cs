@@ -9,7 +9,8 @@ public class Creature : MonoBehaviour
     public bool isAttacking;
     public bool isBlocking;
     public bool playerOwned;
-
+    // not using summoning sickness for now
+    // public bool summoningSickness = true;
     public void TakeDamage(int damage)
     {
         // Creatures take damage
@@ -23,6 +24,14 @@ public class Creature : MonoBehaviour
 
     public void StartAttack()
     {
+        /*
+        // If not summoning sick then the attack will commence.
+        if (!summoningSickness)
+        {
+            isAttacking = true;
+        }
+        */
+        
         isAttacking = true;
     }
 }
