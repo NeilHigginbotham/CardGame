@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MatchScene.unity
     guid: fc0824689b36eac4f8e5cd6329995249
+  - enabled: 1
+    path: Assets/Scenes/PlayerLossScene.unity
+    guid: ba3fdd452f17e5c4f90373204d8145bf
+  - enabled: 1
+    path: Assets/Scenes/PlayerVictoryRewardScene.unity
+    guid: d3500e4b48802944ba18cfdc5199bc91
   m_configObjects: {}
