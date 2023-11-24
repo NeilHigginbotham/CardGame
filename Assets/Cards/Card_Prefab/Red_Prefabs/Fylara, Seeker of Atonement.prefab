@@ -972,7 +972,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6560665700132800470}
   - component: {fileID: 5423812678459398240}
-  - component: {fileID: 5423812678459398247}
   - component: {fileID: 7454282276644110211}
   - component: {fileID: -4183118281449528829}
   - component: {fileID: 2359545830761354739}
@@ -1036,18 +1035,6 @@ MonoBehaviour:
   isOnBattlefield: 0
   handIndex: 0
   card: {fileID: 11400000, guid: b747d27b02a81b246a3c55a43495d49a, type: 2}
---- !u!114 &5423812678459398247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423812678459398245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d19ddf4f032b45926d3a8b8d23096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7454282276644110211
 MonoBehaviour:
   m_ObjectHideFlags: 0

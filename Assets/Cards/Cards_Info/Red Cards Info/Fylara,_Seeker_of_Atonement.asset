@@ -18,6 +18,7 @@ MonoBehaviour:
     for an instant or sorcery targeting a creature you control.'
   artwork: {fileID: 21300000, guid: ce04235bef05ff94c927f89ab2f9d490, type: 3}
   cardBorder: {fileID: 21300000, guid: f080447e83830164c8a045ee41c09e45, type: 3}
-  manaCost: 3
+  manaCost: 2
   attack: 2
   health: 2
+  cardType: 

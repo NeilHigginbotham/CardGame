@@ -56,10 +56,16 @@ public class TurnManager : MonoBehaviour
         {
             case "Untap":
                 Debug.Log("Untap phase logic");
-                TriggerUntapCoroutineOnAllCards(); // Trigger untap on our stuff
+
+                if (isPlayerTurn)
+                {
+                    TriggerUntapCoroutineOnAllCards(); // Trigger untap on our stuff
+                }
+
                 TriggerManaUntapCoroutineOnAllCards(); // Tells our lands they can make mana again
                 HighlightButton(untapButton);
                 canPlayLand = true;
+
                 break;
             case "Draw":
                 Debug.Log("Draw phase logic");

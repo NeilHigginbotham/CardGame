@@ -16,7 +16,8 @@ MonoBehaviour:
   description: '{p/g}{t}: Add {G}{G} <space=6em> The elder''s of Nissa''s clan spread
     the oil throughout Zendikar once more. '
   artwork: {fileID: 21300000, guid: d84b647cc21c6fd468de16636d106321, type: 3}
-  cardBorder: {fileID: 21300000, guid: 76bf306bdb03c9c42b8fc8a53771a7d8, type: 3}
-  manaCost: 2
+  cardBorder: {fileID: 21300000, guid: dfb04ee221e987c4c81368eb24230509, type: 3}
+  manaCost: 1
   attack: 2
   health: 2
+  cardType: 

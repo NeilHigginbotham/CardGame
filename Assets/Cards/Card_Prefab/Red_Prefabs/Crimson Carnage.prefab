@@ -8,10 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2299703087845903748}
+  - component: {fileID: 3188443054062940568}
   - component: {fileID: 5263029636405056738}
   - component: {fileID: 2169685207406308313}
   - component: {fileID: -1131465552698611521}
+  - component: {fileID: 5462747841661967380}
+  - component: {fileID: 6383847344718927995}
   m_Layer: 0
   m_Name: Crimson Carnage
   m_TagString: Untagged
@@ -19,15 +21,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2299703087845903748
-Transform:
+--- !u!224 &3188443054062940568
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643542148875786579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3134.8076, y: 290.05118, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3772181, y: 1.3772181, z: 1.3772181}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42,6 +44,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3134.8076, y: 290.05118}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5263029636405056738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550f4c188141ce941b1d1f732a262a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: f8245e8f4d7e40b4c88931306999de97, type: 2}
   nameText: {fileID: 1974525936081180832}
   descriptionText: {fileID: 514596531979457125}
   manaText: {fileID: 978816846881113410}
@@ -63,7 +69,10 @@ MonoBehaviour:
   cardBorder: {fileID: 724235092396441189}
   artworkImage: {fileID: 2046608602207134843}
   hasBeenPlayed: 0
+  isBeingPlayed: 0
+  isOnBattlefield: 0
   handIndex: 0
+  card: {fileID: 11400000, guid: f8245e8f4d7e40b4c88931306999de97, type: 2}
 --- !u!114 &2169685207406308313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +141,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5462747841661967380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643542148875786579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896ca24db1e3b60479776b8b2747876a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempenlargedobject: {fileID: 1643542148875786579}
+  scaleFactor: 2
+  offset: {x: 0, y: 0, z: 1}
+--- !u!114 &6383847344718927995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643542148875786579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2208abe740c0b5747a7ac73e817fd3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCardTapped: 0
+  isDragged: 0
+  isRightClickDown: 0
+  land: {fileID: 0}
+  card: {fileID: 5263029636405056738}
 --- !u!1 &2303971800912091983
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +203,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -297,7 +338,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -432,7 +473,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -567,7 +608,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -702,7 +743,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -778,7 +819,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -913,7 +954,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -989,7 +1030,7 @@ RectTransform:
   m_LocalScale: {x: 2.434995, y: 3.6074, z: 3.6074}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299703087845903748}
+  m_Father: {fileID: 3188443054062940568}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

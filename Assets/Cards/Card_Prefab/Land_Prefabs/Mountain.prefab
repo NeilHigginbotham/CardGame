@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 7486880395550264219}
   - component: {fileID: 6404859565023319718}
   m_Layer: 0
-  m_Name: Swamp
+  m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

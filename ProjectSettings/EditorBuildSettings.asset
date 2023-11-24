@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerVictoryRewardScene.unity
     guid: d3500e4b48802944ba18cfdc5199bc91
+  - enabled: 1
+    path: Assets/Scenes/PostWinMenuScene.unity
+    guid: a2b557f4ed1483a47b5b0952ec3c3cf9
   m_configObjects: {}

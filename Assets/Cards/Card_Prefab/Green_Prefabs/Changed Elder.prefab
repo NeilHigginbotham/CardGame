@@ -804,7 +804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550f4c188141ce941b1d1f732a262a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 3645dd3f0099a5949ab73a83d0cb6082, type: 2}
   nameText: {fileID: 864872398674581061}
   descriptionText: {fileID: 864872398879306489}
   manaText: {fileID: 864872398935616693}
@@ -813,7 +812,10 @@ MonoBehaviour:
   cardBorder: {fileID: 864872399343082557}
   artworkImage: {fileID: 864872398555573668}
   hasBeenPlayed: 0
+  isBeingPlayed: 0
+  isOnBattlefield: 0
   handIndex: 0
+  card: {fileID: 11400000, guid: 3645dd3f0099a5949ab73a83d0cb6082, type: 2}
 --- !u!114 &864872399134075761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,7 +938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: dfb04ee221e987c4c81368eb24230509, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

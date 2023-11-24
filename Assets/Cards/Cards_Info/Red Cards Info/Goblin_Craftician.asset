@@ -17,6 +17,7 @@ MonoBehaviour:
     any target.
   artwork: {fileID: 21300000, guid: 922bf646acb5abc488066f3a9f81b323, type: 3}
   cardBorder: {fileID: 21300000, guid: dfb04ee221e987c4c81368eb24230509, type: 3}
-  manaCost: 2
+  manaCost: 1
   attack: 1
   health: 1
+  cardType: 
